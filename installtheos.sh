@@ -1,5 +1,8 @@
 #!/bin/bash
 export THEOS=/opt/theos >> ~/.profile
+echo “if [[ "$(umask)" = "0000" ]]; then” >> ~/.profile
+echo “  umask 0022” >> ~/.profile
+echo “fi” >> ~/.profile
 source ~/.profile
 sudo apt-get install software-properties-common gnupg1 gnupg2 gnupg3 gnupg unzip
 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
